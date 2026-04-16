@@ -232,8 +232,16 @@ function renderVenn(divId, vennData) {
     }
   ];
 
-  const rulingKW  = Object.values(vennData.ruling_only).flat().slice(0, 5).join('<br>');
-  const oppKW     = Object.values(vennData.opposition_only).flat().slice(0, 5).join('<br>');
+  const rulingKW  = Object.values(vennData.ruling_only)
+  .flat()
+  .slice(0, 4)
+  .map(w => `• ${w}`)
+  .join('<br>');
+  const oppKW     = Object.values(vennData.opposition_only)
+  .flat()
+  .slice(0, 4)
+  .map(w => `• ${w}`)
+  .join('<br>');
   const sharedKW  = Object.values(vennData.shared)
   .flat()
   .slice(0, 3)
