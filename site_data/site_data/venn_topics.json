@@ -1,0 +1,63 @@
+{
+  "ruling_only": {
+    "Topic 1": [
+      "women",
+      "poshan",
+      "development",
+      "child",
+      "irani",
+      "children",
+      "union",
+      "smt"
+    ]
+  },
+  "opposition_only": {
+    "Topic 2": [
+      "election",
+      "data",
+      "manifesto",
+      "first",
+      "commission",
+      "debate",
+      "elections",
+      "want"
+    ],
+    "Topic 3": [
+      "back",
+      "give",
+      "farmers",
+      "bill",
+      "minutes",
+      "years",
+      "states",
+      "committee"
+    ],
+    "Topic 4": [
+      "per",
+      "cent",
+      "states",
+      "cess",
+      "opposition",
+      "last",
+      "bjp",
+      "let"
+    ]
+  },
+  "shared": {
+    "Topic 5": [
+      "bill",
+      "sabha",
+      "women",
+      "want",
+      "bring",
+      "community",
+      "today",
+      "years"
+    ]
+  },
+  "counts": {
+    "ruling_only": 1,
+    "opposition_only": 3,
+    "shared": 1
+  }
+}

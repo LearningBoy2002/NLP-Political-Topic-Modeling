@@ -1,0 +1,159 @@
+{
+  "leader": "Derek O'Brien",
+  "house": "Rajya Sabha",
+  "role": "Opposition",
+  "topics": {
+    "Topic 2": {
+      "words": [
+        "election",
+        "data",
+        "manifesto",
+        "first",
+        "commission",
+        "debate",
+        "elections",
+        "want",
+        "political",
+        "point",
+        "solution",
+        "examples",
+        "bill",
+        "assembly",
+        "give"
+      ],
+      "scores": [
+        17.2005,
+        12.7323,
+        10.1775,
+        8.7957,
+        8.7627,
+        8.188,
+        7.9953,
+        7.9559,
+        7.8916,
+        7.4412,
+        7.2009,
+        7.0777,
+        6.9705,
+        6.5418,
+        6.3084
+      ]
+    },
+    "Topic 3": {
+      "words": [
+        "back",
+        "give",
+        "farmers",
+        "bill",
+        "minutes",
+        "years",
+        "states",
+        "committee",
+        "bills",
+        "four",
+        "today",
+        "bengal",
+        "sabha",
+        "failed",
+        "three"
+      ],
+      "scores": [
+        42.0093,
+        39.6273,
+        21.1879,
+        19.3363,
+        16.4517,
+        15.5524,
+        15.3248,
+        13.1929,
+        13.1871,
+        12.9806,
+        12.7722,
+        12.7151,
+        12.7011,
+        12.1903,
+        11.3091
+      ]
+    },
+    "Topic 4": {
+      "words": [
+        "per",
+        "cent",
+        "states",
+        "cess",
+        "opposition",
+        "last",
+        "bjp",
+        "let",
+        "dont",
+        "address",
+        "point",
+        "page",
+        "even",
+        "today",
+        "done"
+      ],
+      "scores": [
+        50.3208,
+        46.7496,
+        16.9673,
+        14.1902,
+        13.5819,
+        12.8322,
+        12.7027,
+        10.6527,
+        10.5673,
+        10.3015,
+        9.5637,
+        9.195,
+        8.9464,
+        8.412,
+        8.3792
+      ]
+    },
+    "Topic 5": {
+      "words": [
+        "bill",
+        "sabha",
+        "women",
+        "want",
+        "bring",
+        "community",
+        "today",
+        "years",
+        "minutes",
+        "bengal",
+        "lok",
+        "know",
+        "womens",
+        "dont",
+        "take"
+      ],
+      "scores": [
+        34.9329,
+        18.8108,
+        18.0371,
+        17.9901,
+        17.5216,
+        17.2004,
+        15.6986,
+        15.4533,
+        15.2002,
+        13.5546,
+        12.6162,
+        12.0501,
+        12.0483,
+        11.8918,
+        11.4509
+      ]
+    }
+  },
+  "profile": {
+    "Topic 1": 0.051,
+    "Topic 2": 0.139,
+    "Topic 3": 0.321,
+    "Topic 4": 0.211,
+    "Topic 5": 0.278
+  },
+  "dominant_topic": "Topic 3"
+}

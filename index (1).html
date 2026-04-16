@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parliamentary Discourse Analysis</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────────────── -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="badge">MBA Business Analytics · NLP Research</div>
+    <h1>Parliamentary Discourse<br/><span class="accent">Topic Analysis</span></h1>
+    <p class="subtitle">Comparative LDA Topic Modeling of Indian Parliamentary Speeches<br/>Ruling Party vs Opposition Leader</p>
+    <div class="meta-row">
+      <span class="meta-pill">16 Speeches Analyzed</span>
+      <span class="meta-pill">5 LDA Topics</span>
+      <span class="meta-pill">Lok Sabha · Rajya Sabha</span>
+    </div>
+  </div>
+</header>
+
+<!-- ── LEADERS ────────────────────────────────────────────────── -->
+<section class="leaders-section">
+  <div class="container">
+    <h2 class="section-title">Leaders Under Study</h2>
+    <div class="leaders-grid">
+
+      <div class="leader-card ruling">
+        <div class="leader-role-badge">Ruling Party</div>
+        <div class="leader-photo-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Smriti_Zubin_Irani.jpg/440px-Smriti_Zubin_Irani.jpg"
+               alt="Smriti Irani" class="leader-photo"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Smriti+Irani'"/>
+        </div>
+        <div class="leader-info">
+          <h3>Smriti Irani</h3>
+          <p class="leader-house">Lok Sabha · BJP</p>
+          <p class="leader-role-text">Union Cabinet Minister<br/>Women &amp; Child Development</p>
+        </div>
+        <div class="leader-flag">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/BJP_flag.svg/200px-BJP_flag.svg.png"
+               alt="BJP Flag" class="flag-img"
+               onerror="this.src='https://via.placeholder.com/120x60?text=BJP'"/>
+        </div>
+      </div>
+
+      <div class="vs-divider"><span>VS</span></div>
+
+      <div class="leader-card opposition">
+        <div class="leader-role-badge">Opposition</div>
+        <div class="leader-photo-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Derek_O%27Brien_%28cropped%29.jpg/440px-Derek_O%27Brien_%28cropped%29.jpg"
+               alt="Derek O'Brien" class="leader-photo"
+               onerror="this.src='https://via.placeholder.com/180x180?text=Derek+O%27Brien'"/>
+        </div>
+        <div class="leader-info">
+          <h3>Derek O'Brien</h3>
+          <p class="leader-house">Rajya Sabha · AITC</p>
+          <p class="leader-role-text">Parliamentary Floor Leader<br/>All India Trinamool Congress</p>
+        </div>
+        <div class="leader-flag">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/All_India_Trinamool_Congress_flag.svg/200px-All_India_Trinamool_Congress_flag.svg.png"
+               alt="TMC Flag" class="flag-img"
+               onerror="this.src='https://via.placeholder.com/120x60?text=AITC'"/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TOPIC CHARTS ────────────────────────────────────────────── -->
+<section class="charts-section">
+  <div class="container">
+    <h2 class="section-title">Topic Distribution Analysis</h2>
+    <p class="section-sub">Average topic probability per leader across all speeches. Derived from LDA (5 topics, 16 documents).</p>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-header ruling-header">
+          <span class="chart-dot ruling-dot"></span>
+          Smriti Irani — Topic Profile
+        </div>
+        <div id="chart-smriti" class="chart-area"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header opposition-header">
+          <span class="chart-dot opposition-dot"></span>
+          Derek O'Brien — Topic Profile
+        </div>
+        <div id="chart-derek" class="chart-area"></div>
+      </div>
+    </div>
+
+    <div class="chart-card full-width-card">
+      <div class="chart-header">
+        <span class="chart-dot neutral-dot"></span>
+        Side-by-Side Topic Comparison
+      </div>
+      <div id="chart-comparison" class="chart-area chart-area-tall"></div>
+    </div>
+
+    <div class="chart-card full-width-card">
+      <div class="chart-header">
+        <span class="chart-dot neutral-dot"></span>
+        Top Keywords by Topic — Ruling Leader
+      </div>
+      <div id="chart-keywords-ruling" class="chart-area chart-area-tall"></div>
+    </div>
+
+    <div class="chart-card full-width-card">
+      <div class="chart-header">
+        <span class="chart-dot opposition-dot"></span>
+        Top Keywords by Topic — Opposition Leader
+      </div>
+      <div id="chart-keywords-opposition" class="chart-area chart-area-tall"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VENN DIAGRAM ────────────────────────────────────────────── -->
+<section class="venn-section">
+  <div class="container">
+    <h2 class="section-title">Thematic Overlap</h2>
+    <p class="section-sub">Topics active (avg probability &gt; 0.10) for each leader, mapped for shared and exclusive themes.</p>
+    <div class="venn-wrapper">
+      <div id="venn-container"></div>
+      <div id="venn-legend" class="venn-legend"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INTERPRETATION ─────────────────────────────────────────── -->
+<section class="interpretation-section">
+  <div class="container">
+    <h2 class="section-title">Analytical Insights</h2>
+    <p class="section-sub">Auto-generated interpretations from topic model outputs.</p>
+    <div id="insight-cards" class="insight-grid"></div>
+  </div>
+</section>
+
+<!-- ── TEAM ───────────────────────────────────────────────────── -->
+<section class="team-section">
+  <div class="container">
+    <div class="team-header">
+      <div class="team-badge">Research Team</div>
+      <h2>MBA Business Analytics</h2>
+      <p>BITS Pilani · Natural Language Processing Assignment</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">BB</div>
+        <div class="team-name">Bishwarup Biswas</div>
+        <div class="team-id">2025H1540852P</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">JS</div>
+        <div class="team-name">Jayasuriya</div>
+        <div class="team-id">2025H1540850P</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">YK</div>
+        <div class="team-name">Yugmita Katyayan</div>
+        <div class="team-id">2025H1540866P</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">VJ</div>
+        <div class="team-name">Vijay J</div>
+        <div class="team-id">2025H1540806P</div>
+      </div>
+    </div>
+    <div class="team-footer">
+      <p>LDA Topic Modeling · scikit-learn · NLTK · Plotly.js</p>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+{
+  "overlap_percentage": 20,
+  "cards": [
+    {
+      "title": "Thematic Overlap",
+      "icon": "\u2696\ufe0f",
+      "content": "20% of active topics are shared between both leaders, indicating low parliamentary agenda convergence. Shared topics: Topic 5."
+    },
+    {
+      "title": "Ruling Party Focus",
+      "icon": "\ud83c\udfdb\ufe0f",
+      "content": "Smriti Irani's discourse is concentrated in Topic 1 (avg 0.854), centered on women empowerment, child nutrition, and welfare schemes (Poshan Mission, Anganwadi). Her speeches reflect a programmatic, portfolio-specific communication style tied to her ministerial role."
+    },
+    {
+      "title": "Opposition Agenda",
+      "icon": "\ud83d\udccb",
+      "content": "Derek O'Brien's speeches span Topics 3, 4 and 5 with a broader thematic range covering legislative scrutiny, federalism, fiscal policy criticism (BJP, cess), and regional advocacy for West Bengal. His discourse is oppositional, multi-domain, and accountability-oriented."
+    },
+    {
+      "title": "Discourse Framing",
+      "icon": "\ud83d\udd0d",
+      "content": "Both leaders operate in different parliamentary chambers \u2014 Lok Sabha vs Rajya Sabha \u2014 which structurally shapes their speech length, depth, and framing. Derek's speeches average 3\u20134x longer, allowing wider issue coverage, while Smriti's shorter focused interventions reflect targeted scheme advocacy."
+    }
+  ],
+  "ruling_topics": [
+    {
+      "topic": "Topic 1",
+      "keywords": [
+        "women",
+        "poshan",
+        "development",
+        "child",
+        "irani",
+        "children"
+      ]
+    },
+    {
+      "topic": "Topic 5",
+      "keywords": [
+        "bill",
+        "sabha",
+        "women",
+        "want",
+        "bring",
+        "community"
+      ]
+    }
+  ],
+  "opposition_topics": [
+    {
+      "topic": "Topic 2",
+      "keywords": [
+        "election",
+        "data",
+        "manifesto",
+        "first",
+        "commission",
+        "debate"
+      ]
+    },
+    {
+      "topic": "Topic 3",
+      "keywords": [
+        "back",
+        "give",
+        "farmers",
+        "bill",
+        "minutes",
+        "years"
+      ]
+    },
+    {
+      "topic": "Topic 4",
+      "keywords": [
+        "per",
+        "cent",
+        "states",
+        "cess",
+        "opposition",
+        "last"
+      ]
+    },
+    {
+      "topic": "Topic 5",
+      "keywords": [
+        "bill",
+        "sabha",
+        "women",
+        "want",
+        "bring",
+        "community"
+      ]
+    }
+  ],
+  "shared_topics": [
+    {
+      "topic": "Topic 5",
+      "keywords": [
+        "bill",
+        "sabha",
+        "women",
+        "want",
+        "bring",
+        "community"
+      ]
+    }
+  ]
+}
