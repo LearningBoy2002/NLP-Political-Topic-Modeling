@@ -232,9 +232,13 @@ function renderVenn(divId, vennData) {
     }
   ];
 
-  const rulingKW  = Object.values(vennData.ruling_only).flat().slice(0, 6).join('\n');
-  const oppKW     = Object.values(vennData.opposition_only).flat().slice(0, 6).join('\n');
-  const sharedKW  = Object.values(vennData.shared).flat().slice(0, 4).join('\n');
+  const rulingKW  = Object.values(vennData.ruling_only).flat().slice(0, 5).join('<br>');
+  const oppKW     = Object.values(vennData.opposition_only).flat().slice(0, 5).join('<br>');
+  const sharedKW  = Object.values(vennData.shared)
+  .flat()
+  .slice(0, 3)
+  .map(w => `• ${w}`)
+  .join('<br>');
 
   const annotations = [
     // Ruling label
@@ -250,7 +254,7 @@ function renderVenn(divId, vennData) {
       font:{ color: THEME.accent, size: 12, family:'Playfair Display, serif' },
       xref:'paper', yref:'paper' },
     // Shared keywords
-    { x: 0.5, y: 0.5, text: sharedKW || 'None', showarrow: false,
+    { x: 0.5, y: 0.6, text: sharedKW || 'None', showarrow: false,
       font:{ color: THEME.accent, size: 11, family:'DM Mono, monospace' },
       xref:'paper', yref:'paper', align:'center' },
     // Opposition label
