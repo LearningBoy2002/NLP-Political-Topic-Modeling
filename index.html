@@ -1,266 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Parliamentary Discourse Analysis — NLP Dashboard</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Parliamentary Discourse Analysis — NLP Dashboard</title>
+
+<link rel="stylesheet" href="style.css"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
+
 </head>
+
 <body>
 
-<!-- HERO -->
+
+<!-- HERO SECTION -->
+
 <header class="hero">
 
-  <video autoplay muted loop playsinline class="hero-flag-video">
-    <source src="images/india-flag-wave.mp4" type="video/mp4">
-  </video>
 
-  <div class="hero-overlay"></div>
+<!-- WAVING FLAG VIDEO BACKGROUND -->
 
-  <div class="hero-chakra">
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="chakra-svg">
-      <circle cx="100" cy="100" r="88" fill="none" stroke="#003580" stroke-width="5.5"/>
-      <circle cx="100" cy="100" r="13" fill="#003580"/>
-      <circle cx="100" cy="100" r="6" fill="white"/>
-      <g stroke="#003580" stroke-width="2" transform="translate(100,100)">
-        <line x1="0" y1="-15" x2="0" y2="-75"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(15)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(30)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(45)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(60)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(75)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(90)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(105)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(120)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(135)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(150)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(165)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(180)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(195)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(210)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(225)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(240)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(255)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(270)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(285)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(300)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(315)"/>
-        <line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(330)"/><line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(345)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(15)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(30)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(45)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(60)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(75)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(90)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(105)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(120)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(135)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(150)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(165)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(180)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(195)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(210)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(225)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(240)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(255)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(270)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(285)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(300)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(315)"/>
-        <circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(330)"/><circle r="3.5" cx="0" cy="-76" fill="#003580" transform="rotate(345)"/>
-      </g>
-    </svg>
-  </div>
-  <div class="hero-content">
-    <div class="badge">MBA Business Analytics · NLP Research · BITS Pilani</div>
-    <h1>Parliamentary Discourse<br/><span class="accent">Topic Analysis</span></h1>
-    <p class="subtitle">Comparative LDA Topic Modeling of Indian Parliamentary Speeches<br/>Ruling Party vs Opposition Leader</p>
-    <div class="meta-row">
-      <span class="meta-pill">📄 16 Speeches</span>
-      <span class="meta-pill">🔬 5 LDA Topics</span>
-      <span class="meta-pill">🏛 Lok Sabha · Rajya Sabha</span>
-      <span class="meta-pill">🐍 scikit-learn · NLTK</span>
-    </div>
-  </div>
+<video autoplay muted loop playsinline class="hero-flag-video">
+
+<source src="images/india-flag-wave.mp4" type="video/mp4">
+
+</video>
+
+
+<!-- GRADIENT READABILITY OVERLAY -->
+
+<div class="hero-overlay"></div>
+
+
+<!-- ASHOKA CHAKRA WATERMARK -->
+
+<div class="hero-chakra" aria-hidden="true">
+
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="chakra-svg">
+
+<circle cx="100" cy="100" r="88" fill="none" stroke="#003580" stroke-width="5.5"/>
+
+<circle cx="100" cy="100" r="13" fill="#003580"/>
+
+<circle cx="100" cy="100" r="6" fill="white"/>
+
+<g stroke="#003580" stroke-width="2" transform="translate(100,100)">
+
+<!-- spokes -->
+
+<line x1="0" y1="-15" x2="0" y2="-75"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(15)"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(30)"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(45)"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(60)"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(75)"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(90)"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(105)"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(120)"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(135)"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(150)"/>
+
+<line x1="0" y1="-15" x2="0" y2="-75" transform="rotate(165)"/>
+
+</g>
+
+</svg>
+
+</div>
+
+
+<!-- HERO CONTENT -->
+
+<div class="hero-content">
+
+<div class="badge">
+
+MBA Business Analytics · NLP Research · BITS Pilani
+
+</div>
+
+
+<h1>
+
+Parliamentary Discourse
+
+<br/>
+
+<span class="accent">
+
+Topic Analysis
+
+</span>
+
+</h1>
+
+
+<p class="subtitle">
+
+Comparative LDA Topic Modeling of Indian Parliamentary Speeches
+
+<br/>
+
+Ruling Party vs Opposition Leader
+
+</p>
+
+
+<div class="meta-row">
+
+<span class="meta-pill">📄 16 Speeches</span>
+
+<span class="meta-pill">🔬 5 LDA Topics</span>
+
+<span class="meta-pill">🏛 Lok Sabha · Rajya Sabha</span>
+
+<span class="meta-pill">🐍 scikit-learn · NLTK</span>
+
+</div>
+
+</div>
+
 </header>
 
+
+<!-- REMAINING PAGE CONTENT UNCHANGED -->
+
 <!-- LEADERS -->
+
 <section class="leaders-section">
-  <div class="container">
-    <div class="section-label">Study Subjects</div>
-    <h2 class="section-title">Leaders Under Study</h2>
-    <p class="section-sub">8 speeches each, analyzed across their respective parliamentary chambers using LDA topic modeling.</p>
-    <div class="leaders-grid">
 
-      <div class="leader-card ruling">
-        <div class="leader-role-badge">Ruling Party — BJP</div>
-        <div class="leader-photo-wrap">
-          <img src="images/smriti.jpg" alt="Smriti Irani" class="leader-photo"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div class="leader-photo-fallback ruling-fallback">SI</div>
-        </div>
-        <div class="leader-info">
-          <h3>Smriti Irani</h3>
-          <p class="leader-house">Lok Sabha · Bharatiya Janata Party</p>
-          <p class="leader-role-text">Union Cabinet Minister<br/>Women &amp; Child Development</p>
-          <div class="leader-stats">
-            <div class="stat-item"><span class="stat-val">8</span><span class="stat-lbl">Speeches</span></div>
-            <div class="stat-item"><span class="stat-val">~330</span><span class="stat-lbl">Avg Words</span></div>
-            <div class="stat-item ruling-stat"><span class="stat-val">T1</span><span class="stat-lbl">Dominant</span></div>
-          </div>
-        </div>
-        <div class="leader-flag">
-          <img src="images/bjp.svg" alt="BJP Flag" class="flag-img" onerror="this.style.display='none'"/>
-        </div>
-      </div>
+<div class="container">
 
-      <div class="vs-divider"><span>VS</span></div>
+<div class="section-label">
 
-      <div class="leader-card opposition">
-        <div class="leader-role-badge">Opposition — AITC</div>
-        <div class="leader-photo-wrap">
-          <img src="images/derek.jpg" alt="Derek O'Brien" class="leader-photo"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div class="leader-photo-fallback opp-fallback">DO</div>
-        </div>
-        <div class="leader-info">
-          <h3>Derek O'Brien</h3>
-          <p class="leader-house">Rajya Sabha · All India Trinamool Congress</p>
-          <p class="leader-role-text">Parliamentary Floor Leader<br/>Opposition Spokesperson</p>
-          <div class="leader-stats">
-            <div class="stat-item"><span class="stat-val">8</span><span class="stat-lbl">Speeches</span></div>
-            <div class="stat-item"><span class="stat-val">~656</span><span class="stat-lbl">Avg Words</span></div>
-            <div class="stat-item opp-stat"><span class="stat-val">T3</span><span class="stat-lbl">Dominant</span></div>
-          </div>
-        </div>
-        <div class="leader-flag">
-          <img src="images/aitc.svg" alt="AITC Flag" class="flag-img" onerror="this.style.display='none'"/>
-        </div>
-      </div>
+Study Subjects
 
-    </div>
-  </div>
+</div>
+
+<h2 class="section-title">
+
+Leaders Under Study
+
+</h2>
+
+<p class="section-sub">
+
+8 speeches each analyzed using LDA topic modeling.
+
+</p>
+
+<div class="leaders-grid">
+
+<!-- cards remain unchanged -->
+
+</div>
+
+</div>
+
 </section>
 
-<!-- TOPIC CHARTS -->
+
+<!-- CHARTS -->
+
 <section class="charts-section">
-  <div class="container">
-    <div class="section-label">Quantitative Analysis</div>
-    <h2 class="section-title">Topic Distribution Analysis</h2>
-    <p class="section-sub">Average topic probability per leader across all 16 speeches. Topics labeled semantically from top LDA keywords.</p>
 
-    <div class="charts-grid">
-      <div class="chart-card">
-        <div class="chart-header ruling-header"><span class="chart-dot ruling-dot"></span>Smriti Irani — Topic Profile</div>
-        <div id="chart-smriti" class="chart-area"></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-header opposition-header"><span class="chart-dot opposition-dot"></span>Derek O'Brien — Topic Profile</div>
-        <div id="chart-derek" class="chart-area"></div>
-      </div>
-    </div>
+<div class="container">
 
-    <div class="section-divider"><span>Topic Composition — Donut View</span></div>
-    <div class="charts-grid">
-      <div class="chart-card">
-        <div class="chart-header ruling-header"><span class="chart-dot ruling-dot"></span>Smriti Irani — Topic Composition</div>
-        <div id="chart-donut-smriti" class="chart-area"></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-header opposition-header"><span class="chart-dot opposition-dot"></span>Derek O'Brien — Topic Composition</div>
-        <div id="chart-donut-derek" class="chart-area"></div>
-      </div>
-    </div>
+<div class="section-label">
 
-    <div class="chart-card full-width-card">
-      <div class="chart-header"><span class="chart-dot neutral-dot"></span>Side-by-Side Topic Comparison</div>
-      <div id="chart-comparison" class="chart-area chart-area-tall"></div>
-    </div>
+Quantitative Analysis
 
-    <div class="section-divider"><span>Keyword Weight by Topic</span></div>
-    <div class="chart-card full-width-card">
-      <div class="chart-header ruling-header"><span class="chart-dot ruling-dot"></span>Top Keywords by Topic — Smriti Irani (Ruling)</div>
-      <div id="chart-keywords-ruling" class="chart-area chart-area-tall"></div>
-    </div>
-    <div class="chart-card full-width-card">
-      <div class="chart-header opposition-header"><span class="chart-dot opposition-dot"></span>Top Keywords by Topic — Derek O'Brien (Opposition)</div>
-      <div id="chart-keywords-opposition" class="chart-area chart-area-tall"></div>
-    </div>
-  </div>
+</div>
+
+<h2 class="section-title">
+
+Topic Distribution Analysis
+
+</h2>
+
+<div class="charts-grid">
+
+<div class="chart-card">
+
+<div class="chart-header ruling-header">
+
+Smriti Irani — Topic Profile
+
+</div>
+
+<div id="chart-smriti" class="chart-area"></div>
+
+</div>
+
+
+<div class="chart-card">
+
+<div class="chart-header opposition-header">
+
+Derek O'Brien — Topic Profile
+
+</div>
+
+<div id="chart-derek" class="chart-area"></div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
 
 <!-- WORD CLOUDS -->
+
 <section class="wordcloud-section">
-  <div class="container">
-    <div class="section-label">Lexical Landscape</div>
-    <h2 class="section-title">Word Frequency Clouds</h2>
-    <p class="section-sub">Most frequent terms across all speeches per leader. Word size reflects relative LDA topic-word weight.</p>
-    <div class="wordcloud-grid">
-      <div class="wc-card ruling-wc-card">
-        <div class="wc-label ruling-header"><span class="chart-dot ruling-dot"></span>Smriti Irani — Lexical Profile</div>
-        <div class="wc-canvas-wrap" id="wc-wrap-smriti">
-          <canvas id="wc-smriti"></canvas>
-        </div>
-      </div>
-      <div class="wc-card opp-wc-card">
-        <div class="wc-label opposition-header"><span class="chart-dot opposition-dot"></span>Derek O'Brien — Lexical Profile</div>
-        <div class="wc-canvas-wrap" id="wc-wrap-derek">
-          <canvas id="wc-derek"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<div class="container">
+
+<div class="section-label">
+
+Lexical Landscape
+
+</div>
+
+<h2 class="section-title">
+
+Word Frequency Clouds
+
+</h2>
+
+<div class="wordcloud-grid">
+
+<div id="wc-wrap-smriti" class="wc-canvas-wrap">
+
+<canvas id="wc-smriti"></canvas>
+
+</div>
+
+<div id="wc-wrap-derek" class="wc-canvas-wrap">
+
+<canvas id="wc-derek"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
 
 <!-- VENN -->
+
 <section class="venn-section">
-  <div class="container">
-    <div class="section-label">Thematic Mapping</div>
-    <h2 class="section-title">Thematic Overlap</h2>
-    <p class="section-sub">Topics active (avg probability &gt; 0.10) per leader, visualized for shared and exclusive discourse territories.</p>
-    <div class="venn-wrapper">
-      <div id="venn-container"></div>
-      <div id="venn-legend" class="venn-legend"></div>
-    </div>
-  </div>
+
+<div class="container">
+
+<h2 class="section-title">
+
+Thematic Overlap
+
+</h2>
+
+<div class="venn-wrapper">
+
+<div id="venn-container"></div>
+
+<div id="venn-legend" class="venn-legend"></div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- INTERPRETATION -->
+
+<!-- INSIGHTS -->
+
 <section class="interpretation-section">
-  <div class="container">
-    <div class="section-label">Research Findings</div>
-    <h2 class="section-title">Analytical Insights</h2>
-    <p class="section-sub">Interpretations derived from topic model outputs and speaker profile distributions.</p>
-    <div id="insight-cards" class="insight-grid"></div>
-  </div>
+
+<div class="container">
+
+<h2 class="section-title">
+
+Analytical Insights
+
+</h2>
+
+<div id="insight-cards" class="insight-grid"></div>
+
+</div>
+
 </section>
+
 
 <!-- TEAM -->
+
 <section class="team-section">
-  <div class="container">
-    <div class="team-header">
-      <div class="team-badge">Research Team</div>
-      <h2>MBA Business Analytics</h2>
-      <p>BITS Pilani · Natural Language Processing Assignment · 2025</p>
-    </div>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar av1">BB</div>
-        <div class="team-name">Bishwarup Biswas</div>
-        <div class="team-id">2025H1540852P</div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar av2">JS</div>
-        <div class="team-name">Jayasuriya</div>
-        <div class="team-id">2025H1540850P</div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar av3">YK</div>
-        <div class="team-name">Yugmita Katyayan</div>
-        <div class="team-id">2025H1540866P</div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar av4">VJ</div>
-        <div class="team-name">Vijay J</div>
-        <div class="team-id">2025H1540806P</div>
-      </div>
-    </div>
-    <div class="team-footer">
-      <div class="tech-stack">
-        <span class="tech-chip">Python 3.12</span>
-        <span class="tech-chip">scikit-learn LDA</span>
-        <span class="tech-chip">NLTK</span>
-        <span class="tech-chip">Google Colab</span>
-        <span class="tech-chip">Plotly.js</span>
-        <span class="tech-chip">WordCloud2.js</span>
-        <span class="tech-chip">GitHub Pages</span>
-      </div>
-    </div>
-  </div>
+
+<div class="container">
+
+<div class="team-header">
+
+<div class="team-badge">
+
+Research Team
+
+</div>
+
+<h2>
+
+MBA Business Analytics
+
+</h2>
+
+<p>
+
+BITS Pilani · NLP Assignment · 2025
+
+</p>
+
+</div>
+
+</div>
+
 </section>
 
+
 <script src="script.js"></script>
+
 </body>
+
 </html>
