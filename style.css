@@ -143,14 +143,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
   z-index: 1;
   background:
     radial-gradient(
-      ellipse 85% 65% at 50% 45%,
-      rgba(8,12,22,0.45) 0%,
-      rgba(8,12,22,0.75) 60%
+      ellipse 60% 45% at 50% 40%,
+      rgba(8,12,22,0.15) 0%,
+      rgba(8,12,22,0.50) 70%
     ),
     linear-gradient(
       180deg,
-      rgba(6,10,20,0.35) 0%,
-      rgba(6,10,20,0.92) 100%
+      rgba(6,10,20,0.12) 0%,
+      rgba(6,10,20,0.70) 100%
     );
 }
 /* Ashoka Chakra watermark */
