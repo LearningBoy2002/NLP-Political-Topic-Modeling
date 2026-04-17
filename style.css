@@ -138,18 +138,25 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
   flex: 1;
 }
 
-.flag-stripe.saffron      { background: rgba(255,153,51,0.07); }
-.flag-stripe.white-stripe { background: rgba(255,255,255,0.4); }
-.flag-stripe.green        { background: rgba(19,136,8,0.06); }
-
+.flag-stripe.saffron { background: rgba(255,153,51,0.14); }
+.flag-stripe.white-stripe { background: rgba(255,255,255,0.55); }
+.flag-stripe.green { background: rgba(19,136,8,0.13); }
 /* Gradient overlay to blend flag into white page */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(ellipse 90% 70% at 50% 50%, rgba(253,252,249,0.55) 0%, rgba(253,252,249,0.92) 70%),
-    linear-gradient(180deg, rgba(253,252,249,0.0) 0%, rgba(247,248,252,0.98) 100%);
+    radial-gradient(
+      ellipse 90% 70% at 50% 50%,
+      rgba(253,252,249,0.45) 0%,
+      rgba(253,252,249,0.68) 70%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(253,252,249,0.0) 0%,
+      rgba(247,248,252,0.90) 100%
+    );
 }
 
 /* Ashoka Chakra watermark */
@@ -165,7 +172,8 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
 .chakra-svg {
   width: 380px;
   height: 380px;
-  opacity: 0.045;
+  opacity: 0.11;
+  mix-blend-mode: multiply;
 }
 
 .hero-content {
