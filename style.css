@@ -3,9 +3,9 @@
 
 :root {
   /* Light research dashboard palette */
-  --bg:          #f7f8fc;
-  --bg2:         #eef1f8;
-  --bg3:         #e4e9f4;
+  --bg:  #eef2f8;
+  --bg2: #e3e9f3;
+  --bg3: #d7deea;
   --card:        #ffffff;
   --card-raised: #ffffff;
   --border:      rgba(15,23,60,0.09);
@@ -121,7 +121,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
   text-align: center;
   padding: 7rem 2rem 6rem;
   overflow: hidden;
-  background: #fdfcf9;
+  background: #0b1220;
 }
 
 /* Waving flag video background */
@@ -143,14 +143,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
   z-index: 1;
   background:
     radial-gradient(
-      ellipse 90% 70% at 50% 50%,
-      rgba(253,252,249,0.45) 0%,
-      rgba(253,252,249,0.65) 70%
+      ellipse 85% 65% at 50% 45%,
+      rgba(8,12,22,0.45) 0%,
+      rgba(8,12,22,0.75) 60%
     ),
     linear-gradient(
       180deg,
-      rgba(253,252,249,0.25) 0%,
-      rgba(247,248,252,0.85) 100%
+      rgba(6,10,20,0.35) 0%,
+      rgba(6,10,20,0.92) 100%
     );
 }
 /* Ashoka Chakra watermark */
@@ -193,7 +193,8 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
 .hero h1 {
   font-size: clamp(2.6rem, 6.5vw, 4.6rem);
   line-height: 1.12;
-  color: var(--text);
+  /* color: var(--text); */
+  color: #ffffff;
   margin-bottom: 1.2rem;
   font-weight: 700;
 }
@@ -204,7 +205,8 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
 }
 
 .subtitle {
-  color: var(--text2);
+  /* color: var(--text2); */
+  color: rgba(255,255,255,0.75);
   font-size: clamp(0.98rem, 2vw, 1.12rem);
   margin-bottom: 2.2rem;
   line-height: 1.75;
