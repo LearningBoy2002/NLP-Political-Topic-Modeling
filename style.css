@@ -134,14 +134,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
   z-index: 0;
   pointer-events: none;
 }
-/* Gradient overlay to blend flag into white page */
+/* Gradient overlay — strong enough for text, lets video show subtly */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(ellipse 90% 70% at 50% 50%, rgba(253,252,249,0.15) 0%, rgba(253,252,249,0.35) 70%),
-    linear-gradient(180deg, rgba(253,252,249,0.0) 0%, rgba(247,248,252,0.60) 100%);
+    radial-gradient(ellipse 90% 70% at 50% 50%, rgba(253,252,249,0.72) 0%, rgba(253,252,249,0.88) 70%),
+    linear-gradient(180deg, rgba(253,252,249,0.45) 0%, rgba(247,248,252,0.97) 100%);
 }
 
 /* Ashoka Chakra watermark */
