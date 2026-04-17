@@ -154,7 +154,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
     );
 }
 /* Ashoka Chakra watermark */
-.hero-chakra {
+/* .hero-chakra {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -167,7 +167,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
   width: 380px;
   height: 380px;
   opacity: 0.045;
-}
+} */
 
 .hero-content {
   position: relative;
