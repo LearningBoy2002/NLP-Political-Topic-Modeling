@@ -133,6 +133,8 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
+
+  filter: contrast(1.35) saturate(1.25) brightness(0.9);
 }
 /* Gradient overlay — strong enough for text, lets video show subtly */
 .hero-overlay {
