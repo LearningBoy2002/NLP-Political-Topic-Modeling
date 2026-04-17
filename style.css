@@ -130,6 +130,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
   inset: 0;
   display: flex;
   flex-direction: column;
+  mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 0;
 }
@@ -138,9 +139,10 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
   flex: 1;
 }
 
-.flag-stripe.saffron { background: rgba(255,153,51,0.14); }
+.flag-stripe.saffron { background: rgba(255,153,51,0.20); }
+.flag-stripe.green   { background: rgba(19,136,8,0.18); }
 .flag-stripe.white-stripe { background: rgba(255,255,255,0.55); }
-.flag-stripe.green { background: rgba(19,136,8,0.13); }
+
 /* Gradient overlay to blend flag into white page */
 .hero-overlay {
   position: absolute;
